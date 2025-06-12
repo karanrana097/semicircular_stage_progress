@@ -1,5 +1,3 @@
-library semicircular_stage_progress;
-
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -49,13 +47,13 @@ class SemicircularStageProgress extends StatelessWidget {
   /// Color of the inner indicator dot (default: Colors.white)
   final Color? indicatorInnerColor;
 
-  /// Text to display below the indicator (default: 'Stage $currentStage')
+  /// Text to display below the indicator (default: None)
   final String? stageText;
 
   /// Style for the stage text (default: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))
   final TextStyle? stageTextStyle;
 
-  /// Text to display status below stage text (default: 'Completed' or 'In Progress')
+  /// Text to display status below stage text (default: None)
   final String? statusText;
 
   /// Style for the status text (default: TextStyle(fontSize: 18, color: completedColor or currentColor))
@@ -86,14 +84,19 @@ class SemicircularStageProgress extends StatelessWidget {
     this.statusText,
     this.statusTextStyle,
     this.textSpacing,
-  })  : assert(currentStage > 0 && currentStage <= totalStages,
-  'currentStage must be between 1 and totalStages'),
-        assert(totalStages > 0, 'totalStages must be greater than 0');
+  }) : assert(
+         currentStage > 0 && currentStage <= totalStages,
+         'currentStage must be between 1 and totalStages',
+       ),
+       assert(totalStages > 0, 'totalStages must be greater than 0');
 
   @override
   Widget build(BuildContext context) {
     final int completedStages = currentStage - 1;
     final bool isCompleted = currentStage <= completedStages;
+
+    final bool showStageText = stageText != null;
+    final bool showStatusText = statusText != null;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -114,27 +117,34 @@ class SemicircularStageProgress extends StatelessWidget {
               showCurrentIndicator: showCurrentIndicator ?? true,
               indicatorOuterSize: indicatorOuterSize ?? 12,
               indicatorInnerSize: indicatorInnerSize ?? 8,
-              indicatorOuterColor: indicatorOuterColor ?? completedColor ?? const Color(0xff7FE47E),
+              indicatorOuterColor:
+                  indicatorOuterColor ??
+                  completedColor ??
+                  const Color(0xff7FE47E),
               indicatorInnerColor: indicatorInnerColor ?? Colors.white,
             ),
           ),
         ),
         SizedBox(height: textSpacing ?? 20),
-        Text(
-          stageText ?? 'Stage $currentStage',
-          style: stageTextStyle ??
-              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          statusText ?? (isCompleted ? 'Completed' : 'In Progress'),
-          style: statusTextStyle ??
-              TextStyle(
-                fontSize: 18,
-                color: isCompleted
-                    ? completedColor ?? const Color(0xff7FE47E)
-                    : currentColor ?? const Color(0xff309646),
-              ),
-        ),
+        if (showStageText)
+          Text(
+            stageText ?? 'Stage $currentStage',
+            style:
+                stageTextStyle ??
+                const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        if (showStatusText)
+          Text(
+            statusText ?? (isCompleted ? 'Completed' : 'In Progress'),
+            style:
+                statusTextStyle ??
+                TextStyle(
+                  fontSize: 18,
+                  color: isCompleted
+                      ? completedColor ?? const Color(0xff7FE47E)
+                      : currentColor ?? const Color(0xff309646),
+                ),
+          ),
       ],
     );
   }

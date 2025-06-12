@@ -1,12 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:semicircular_stage_progress/semicircular_stage_progress.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
-  });
+  test(
+    'Throws assertion error if currentStage is greater than totalStages',
+    () {
+      expect(
+        () => SemicircularStageProgress(totalStages: 5, currentStage: 6),
+        throwsA(isA<AssertionError>()),
+      );
+    },
+  );
 }

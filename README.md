@@ -1,39 +1,169 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+Here’s a polished and complete `README.md` file for your **Flutter package**: `semicircular_stage_progress`.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+---
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+```markdown
+# Semicircular Stage Progress Indicator
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+[![Pub Version](https://img.shields.io/pub/v/semicircular_stage_progress)](https://pub.dev/packages/semicircular_stage_progress)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Features
+A customizable Flutter widget that visually represents progress through multiple stages using a beautiful, animated **semicircular arc** design. Ideal for onboarding flows, delivery tracking, and any multi-step process.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+---
 
-## Getting started
+## ✨ Features
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- 🎨 Fully customizable colors, arc thickness, padding, and text
+- 🔘 Optional animated indicator dot for the current stage
+- 📏 Gap-controlled arc segments for aesthetic spacing
+- 📄 Text support below the semicircle for dynamic messaging
+- ⚡ Lightweight and performant, built entirely with `CustomPainter`
 
-## Usage
+---
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+## 🚀 Installation
 
-```dart
-const like = 'sample';
+Add the dependency to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  semicircular_stage_progress: ^1.0.0
 ```
 
-## Additional information
+Then run:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```bash
+flutter pub get
+```
+
+---
+
+## 🧑‍💻 Usage
+
+### Basic Usage
+
+```dart
+import 'package:semicircular_stage_progress/semicircular_stage_progress.dart';
+
+SemicircularStageProgress(
+  totalStages: 6,
+  currentStage: 3,
+)
+```
+
+![Basic Example]
+![img.png](img.png)
+
+---
+
+### Fully Customized Example
+
+```dart
+SemicircularStageProgress(
+  totalStages: 8,
+  currentStage: 5,
+  completedColor: Colors.blue,
+  currentColor: Colors.blueAccent,
+  futureColor: Colors.blueGrey[100],
+  arcWidth: 16,
+  gapFactor: 0.7,
+  stageText: 'Step 5 of 8',
+  statusText: 'Processing...',
+)
+```
+
+![Customized Example]
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+---
+
+## 🔧 Parameters
+
+| Parameter              | Type         | Description                                         | Default                         |
+|------------------------|--------------|-----------------------------------------------------|---------------------------------|
+| `totalStages`          | `int`        | **Required.** Total number of steps/stages.         | –                               |
+| `currentStage`         | `int`        | **Required.** Current active stage (1-based index). | –                               |
+| `width`                | `double?`    | Width of the widget.                                | `300`                           |
+| `height`               | `double?`    | Height of the widget.                               | `200`                           |
+| `arcWidth`             | `double?`    | Thickness of arc segments.                          | `14`                            |
+| `padding`              | `double?`    | Padding around the semicircle.                      | `10`                            |
+| `gapFactor`            | `double?`    | Gap ratio between arcs (0.0 to 1.0).                | `0.75`                          |
+| `completedColor`       | `Color?`     | Color for completed stages.                         | `Color(0xff7FE47E)`             |
+| `currentColor`         | `Color?`     | Color for current stage.                            | `Color(0xff309646)`             |
+| `futureColor`          | `Color?`     | Color for future/unvisited stages.                  | `Colors.grey.shade300`          |
+| `showCurrentIndicator` | `bool?`      | Whether to show the circular dot indicator.         | `true`                          |
+| `indicatorOuterSize`   | `double?`    | Size of outer indicator circle.                     | `12`                            |
+| `indicatorInnerSize`   | `double?`    | Size of inner indicator circle.                     | `8`                             |
+| `indicatorOuterColor`  | `Color?`     | Color of outer indicator circle.                    | Same as `completedColor`        |
+| `indicatorInnerColor`  | `Color?`     | Color of inner indicator circle.                    | `Colors.white`                  |
+| `stageText`            | `String?`    | Text below the arc (e.g., "Step 3 of 6").           | `'Stage $currentStage'`         |
+| `stageTextStyle`       | `TextStyle?` | Style for the `stageText`.                          | Bold, 24px                      |
+| `statusText`           | `String?`    | Additional message below `stageText`.               | `'Completed'` / `'In Progress'` |
+| `statusTextStyle`      | `TextStyle?` | Style for the `statusText`.                         | 18px, color based on state      |
+| `textSpacing`          | `double?`    | Space between arc and text.                         | `20`                            |
+
+---
+
+## 🧪 Examples
+
+### Purple Theme
+
+```dart
+SemicircularStageProgress(
+  totalStages: 5,
+  currentStage: 2,
+  completedColor: Colors.purple,
+  currentColor: Colors.deepPurple,
+  futureColor: Colors.purple[100],
+)
+```
+
+
+
+---
+
+### Minimal Design (No Indicator or Text)
+
+```dart
+SemicircularStageProgress(
+  totalStages: 4,
+  currentStage: 1,
+  showCurrentIndicator: false,
+  stageText: null,
+  statusText: null,
+)
+```
+
+
+---
+
+## 📄 License
+
+MIT License © [Your Name or Organization]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy  
+of this software and associated documentation files (the "Software"), to deal  
+in the Software without restriction...
+
+[Full MIT License](LICENSE)
+
+---
+
+## 🤝 Contributing
+
+Pull requests and feature suggestions are welcome!  
+Feel free to open an issue or PR at:  
+[GitHub Repository](https://github.com/karanrana097/semicircular_stage_progress)
+
+---
+
+## 🗨️ Support & Contact
+
+For questions, suggestions, or bug reports, open an issue on GitHub.  
+If you're using this in a project, share it with us—we'd love to see it in action!
+
+---
+
+```
+
