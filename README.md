@@ -74,7 +74,7 @@ SemicircularStageProgress(
 
 ![Customized Example]
 
-![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img_1.png)
+![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img1.png)
 
 
 ---
@@ -137,7 +137,7 @@ SemicircularStageProgress(
 ```
 
 ![More Customized Example]
-![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img_2.png)
+![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img2.png)
 ---
 
 ## 📄 License
