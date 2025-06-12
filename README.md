@@ -1,14 +1,12 @@
-Here’s a polished and complete `README.md` file for your **Flutter package**: `semicircular_stage_progress`.
 
 ---
 
 ```markdown
 # Semicircular Stage Progress Indicator
+Made with Love By - Karan Rana
 
-[![Pub Version](https://img.shields.io/pub/v/semicircular_stage_progress)](https://pub.dev/packages/semicircular_stage_progress)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-
-A customizable Flutter widget that visually represents progress through multiple stages using a beautiful, animated **semicircular arc** design. Ideal for onboarding flows, delivery tracking, and any multi-step process.
+A customizable Flutter widget that visually represents progress through multiple stages using a beautiful, animated **semicircular arc** design. 
+Ideal for onboarding flows, delivery tracking, and any multi-step process.
 
 ---
 
@@ -28,7 +26,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  semicircular_stage_progress: ^1.0.0
+  semicircular_stage_progress: ^1.0.1
 ```
 
 Then run:
@@ -53,7 +51,8 @@ SemicircularStageProgress(
 ```
 
 ![Basic Example]
-![img.png](img.png)
+![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img.png)
+
 
 ---
 
@@ -74,8 +73,8 @@ SemicircularStageProgress(
 ```
 
 ![Customized Example]
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img_1.png)
+![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img_2.png)
 ---
 
 ## 🔧 Parameters
