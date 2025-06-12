@@ -136,7 +136,8 @@ SemicircularStageProgress(
 )
 ```
 
-
+![More Customized Example]
+![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img_2.png)
 ---
 
 ## 📄 License
