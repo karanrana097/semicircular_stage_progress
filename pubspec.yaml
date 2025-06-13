@@ -1,6 +1,6 @@
 name: semicircular_stage_progress
 description: A customizable Flutter widget to display a semicircular stage progress indicator with configurable arcs, colors, and dots.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/karanrana097/semicircular_stage_progress
 repository: https://github.com/karanrana097/semicircular_stage_progress
 

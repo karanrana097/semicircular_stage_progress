@@ -8,3 +8,7 @@
 
 ## 1.0.2
 - README.md update for image visuals along with flutter version issue.
+
+## 1.0.3
+- README.md update for image visuals along with flutter sdk issue.
+

@@ -26,7 +26,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  semicircular_stage_progress: ^1.0.2
+  semicircular_stage_progress: ^1.0.3
 ```
 
 Then run:
@@ -140,7 +140,9 @@ SemicircularStageProgress(
 ```
 
 ![More Customized Example]
-![alt text](https://github.com/karanrana097/semicircular_stage_progress/blob/main/img2.png)
+
+![alt text](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img2.png)
+
 ---
 
 ## 📄 License
