@@ -1,32 +1,34 @@
-
----
-https://pub.dev/packages/semicircular_stage_progress
-```markdown
 # Semicircular Stage Progress Indicator
-Made with Love By - Karan Rana
 
-A customizable Flutter widget that visually represents progress through multiple stages using a beautiful, animated **semicircular arc** design. 
-Ideal for onboarding flows, delivery tracking, and any multi-step process.
+[![pub package](https://img.shields.io/pub/v/semicircular_stage_progress.svg)](https://pub.dev/packages/semicircular_stage_progress)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A beautiful, customizable Flutter widget that visualizes progress through multiple stages using an elegant **semicircular arc** design. Perfect for onboarding flows, delivery tracking, multi-step forms, and any sequential process visualization.
+
+![Basic Example](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img.png)
 
 ---
 
 ## ✨ Features
 
-- 🎨 Fully customizable colors, arc thickness, padding, and text
-- 🔘 Optional animated indicator dot for the current stage
-- 📏 Gap-controlled arc segments for aesthetic spacing
-- 📄 Text support below the semicircle for dynamic messaging
-- ⚡ Lightweight and performant, built entirely with `CustomPainter`
+- 🎨 **Fully Customizable** - Colors, arc thickness, padding, and typography
+- 🔘 **Animated Indicator** - Optional dot indicator for current stage with smooth animations
+- 📏 **Gap Control** - Adjustable spacing between arc segments for clean aesthetics
+- 📄 **Dynamic Text Support** - Customizable stage and status text below the semicircle
+- ⚡ **High Performance** - Lightweight implementation using Flutter's `CustomPainter`
+- 🎯 **Responsive Design** - Adapts to different screen sizes and orientations
 
 ---
 
-## 🚀 Installation
+## 🚀 Getting Started
 
-Add the dependency to your `pubspec.yaml`:
+### Installation
+
+Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  semicircular_stage_progress: ^1.0.3
+  semicircular_stage_progress: ^1.0.4
 ```
 
 Then run:
@@ -35,99 +37,63 @@ Then run:
 flutter pub get
 ```
 
----
-
-## 🧑‍💻 Usage
-
-### Basic Usage
+### Import
 
 ```dart
 import 'package:semicircular_stage_progress/semicircular_stage_progress.dart';
-
-SemicircularStageProgress(
-  totalStages: 6,
-  currentStage: 3,
-)
 ```
-
-![Basic Example]
-![alt text](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img.png)
-
-
 
 ---
 
-### Fully Customized Example
+## 📖 Usage Examples
+
+### Basic Implementation
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: Center(
+      child: SemicircularStageProgress(
+        totalStages: 6,
+        currentStage: 3,
+      ),
+    ),
+  );
+}
+
+```
+
+![Basic Example](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img.png)
+
+### Advanced Customization
 
 ```dart
 SemicircularStageProgress(
   totalStages: 8,
   currentStage: 5,
-  completedColor: Colors.blue,
-  currentColor: Colors.blueAccent,
-  futureColor: Colors.blueGrey[100],
+  completedColor: Colors.green,
+  currentColor: Colors.greenAccent,
+  futureColor: Colors.grey[300],
   arcWidth: 16,
   gapFactor: 0.7,
   stageText: 'Step 5 of 8',
-  statusText: 'Processing...',
+  statusText: 'Processing your request...',
+  stageTextStyle: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.green,
+  ),
+  statusTextStyle: TextStyle(
+    fontSize: 16,
+    color: Colors.grey[600],
+  ),
 )
 ```
 
-![Customized Example]
+![Customized Example](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img1.png)
 
-![alt text](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img1.png)
-
-
-
-
----
-
-## 🔧 Parameters
-
-| Parameter              | Type         | Description                                         | Default                         |
-|------------------------|--------------|-----------------------------------------------------|---------------------------------|
-| `totalStages`          | `int`        | **Required.** Total number of steps/stages.         | –                               |
-| `currentStage`         | `int`        | **Required.** Current active stage (1-based index). | –                               |
-| `width`                | `double?`    | Width of the widget.                                | `300`                           |
-| `height`               | `double?`    | Height of the widget.                               | `200`                           |
-| `arcWidth`             | `double?`    | Thickness of arc segments.                          | `14`                            |
-| `padding`              | `double?`    | Padding around the semicircle.                      | `10`                            |
-| `gapFactor`            | `double?`    | Gap ratio between arcs (0.0 to 1.0).                | `0.75`                          |
-| `completedColor`       | `Color?`     | Color for completed stages.                         | `Color(0xff7FE47E)`             |
-| `currentColor`         | `Color?`     | Color for current stage.                            | `Color(0xff309646)`             |
-| `futureColor`          | `Color?`     | Color for future/unvisited stages.                  | `Colors.grey.shade300`          |
-| `showCurrentIndicator` | `bool?`      | Whether to show the circular dot indicator.         | `true`                          |
-| `indicatorOuterSize`   | `double?`    | Size of outer indicator circle.                     | `12`                            |
-| `indicatorInnerSize`   | `double?`    | Size of inner indicator circle.                     | `8`                             |
-| `indicatorOuterColor`  | `Color?`     | Color of outer indicator circle.                    | Same as `completedColor`        |
-| `indicatorInnerColor`  | `Color?`     | Color of inner indicator circle.                    | `Colors.white`                  |
-| `stageText`            | `String?`    | Text below the arc (e.g., "Step 3 of 6").           | `'Stage $currentStage'`         |
-| `stageTextStyle`       | `TextStyle?` | Style for the `stageText`.                          | Bold, 24px                      |
-| `statusText`           | `String?`    | Additional message below `stageText`.               | `'Completed'` / `'In Progress'` |
-| `statusTextStyle`      | `TextStyle?` | Style for the `statusText`.                         | 18px, color based on state      |
-| `textSpacing`          | `double?`    | Space between arc and text.                         | `20`                            |
-
----
-
-## 🧪 Examples
-
-### Purple Theme
-
-```dart
-SemicircularStageProgress(
-  totalStages: 5,
-  currentStage: 2,
-  completedColor: Colors.purple,
-  currentColor: Colors.deepPurple,
-  futureColor: Colors.purple[100],
-)
-```
-
-
-
----
-
-### Minimal Design (No Indicator or Text)
+### Minimal Design
 
 ```dart
 SemicircularStageProgress(
@@ -136,41 +102,176 @@ SemicircularStageProgress(
   showCurrentIndicator: false,
   stageText: null,
   statusText: null,
+  arcWidth: 12,
+  completedColor: Colors.blue,
+  currentColor: Colors.blueAccent,
 )
 ```
 
-![More Customized Example]
-
-![alt text](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img2.png)
+![Minimal Example](https://raw.githubusercontent.com/karanrana097/semicircular_stage_progress/main/img2.png)
 
 ---
 
-## 📄 License
+## 🎛️ API Reference
 
-MIT License © [Your Name or Organization]
+### Required Parameters
 
-Permission is hereby granted, free of charge, to any person obtaining a copy  
-of this software and associated documentation files (the "Software"), to deal  
-in the Software without restriction...
+| Parameter      | Type  | Description                                 |
+|----------------|-------|---------------------------------------------|
+| `totalStages`  | `int` | Total number of stages in the progress flow |
+| `currentStage` | `int` | Current active stage (1-based indexing)     |
 
-[Full MIT License](LICENSE)
+### Customization Parameters
+
+#### Layout & Sizing
+| Parameter   | Type      | Default | Description                         |
+|-------------|-----------|---------|-------------------------------------|
+| `width`     | `double?` | `300`   | Widget width                        |
+| `height`    | `double?` | `200`   | Widget height                       |
+| `arcWidth`  | `double?` | `14`    | Thickness of arc segments           |
+| `padding`   | `double?` | `10`    | Padding around the semicircle       |
+| `gapFactor` | `double?` | `0.75`  | Gap ratio between arcs (0.0 to 1.0) |
+
+#### Colors
+| Parameter        | Type     | Default                | Description                |
+|------------------|----------|------------------------|----------------------------|
+| `completedColor` | `Color?` | `Color(0xff7FE47E)`    | Color for completed stages |
+| `currentColor`   | `Color?` | `Color(0xff309646)`    | Color for current stage    |
+| `futureColor`    | `Color?` | `Colors.grey.shade300` | Color for future stages    |
+
+#### Indicator
+| Parameter              | Type      | Default                  | Description                               |
+|------------------------|-----------|--------------------------|-------------------------------------------|
+| `showCurrentIndicator` | `bool?`   | `true`                   | Show/hide the current stage indicator dot |
+| `indicatorOuterSize`   | `double?` | `12`                     | Outer indicator circle size               |
+| `indicatorInnerSize`   | `double?` | `8`                      | Inner indicator circle size               |
+| `indicatorOuterColor`  | `Color?`  | Same as `completedColor` | Outer indicator color                     |
+| `indicatorInnerColor`  | `Color?`  | `Colors.white`           | Inner indicator color                     |
+
+#### Text & Typography
+| Parameter         | Type         | Default                 | Description                |
+|-------------------|--------------|-------------------------|----------------------------|
+| `stageText`       | `String?`    | `'Stage $currentStage'` | Main text below the arc    |
+| `stageTextStyle`  | `TextStyle?` | Bold, 24px              | Style for stage text       |
+| `statusText`      | `String?`    | Auto-generated          | Secondary status message   |
+| `statusTextStyle` | `TextStyle?` | 18px                    | Style for status text      |
+| `textSpacing`     | `double?`    | `20`                    | Space between arc and text |
+
+---
+
+## 🎨 Theming Examples
+
+### Material Design Theme
+```dart
+SemicircularStageProgress(
+totalStages: 5,
+currentStage: 3,
+completedColor: Theme.of(context).primaryColor,
+currentColor: Theme.of(context).primaryColorDark,
+futureColor: Theme.of(context).dividerColor,
+stageTextStyle: Theme.of(context).textTheme.headlineSmall,
+statusTextStyle: Theme.of(context).textTheme.bodyMedium,
+)
+```
+
+### Purple Gradient Theme
+```dart
+SemicircularStageProgress(
+totalStages: 6,
+currentStage: 4,
+completedColor: Colors.purple,
+currentColor: Colors.deepPurple,
+futureColor: Colors.purple.withOpacity(0.2),
+arcWidth: 18,
+indicatorOuterColor: Colors.deepPurple,
+stageText: 'Almost There!',
+statusText: 'Just 2 more steps',
+)
+```
+
+---
+
+## 💡 Use Cases
+
+- **Onboarding Flows** - Guide users through app setup
+- **Checkout Process** - E-commerce purchase steps
+- **Form Wizards** - Multi-step form completion
+- **Delivery Tracking** - Package delivery status
+- **Course Progress** - Educational content progression
+- **Registration Process** - Account creation steps
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests and feature suggestions are welcome!  
-Feel free to open an issue or PR at:  
-[GitHub Repository](https://github.com/karanrana097/semicircular_stage_progress)
+We welcome contributions! Here's how you can help:
 
----
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
 
-## 🗨️ Support & Contact
+### Development Setup
 
-For questions, suggestions, or bug reports, open an issue on GitHub.  
-If you're using this in a project, share it with us—we'd love to see it in action!
-
----
-
+```bash
+git clone https://github.com/karanrana097/semicircular_stage_progress.git
+cd semicircular_stage_progress
+flutter pub get
+flutter test
 ```
 
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2024 Karan Rana
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+## 📞 Support
+
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/karanrana097/semicircular_stage_progress/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/karanrana097/semicircular_stage_progress/discussions)
+- 📧 **Contact**: Open an issue for questions or suggestions
+
+---
+
+## 🌟 Show Your Support
+
+If this package helped you, please ⭐ star the repository and consider:
+
+- 👍 Liking the package on [pub.dev](https://pub.dev/packages/semicircular_stage_progress)
+- 🐦 Sharing on social media
+- 📝 Writing a blog post about your implementation
+
+---
+
+<div style="text-align: center;">
+  <p><strong>Made with ❤️ by Karan Rana</strong></p>
+  <p><em>Happy Coding! 🚀</em></p>
+</div>

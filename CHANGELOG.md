@@ -12,3 +12,5 @@
 ## 1.0.3
 - README.md update for image visuals along with flutter sdk issue.
 
+## 1.0.4
+- Current stage now can be less than 0 which means the progress or stage isn't started yet

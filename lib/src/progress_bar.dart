@@ -85,8 +85,8 @@ class SemicircularStageProgress extends StatelessWidget {
     this.statusTextStyle,
     this.textSpacing,
   }) : assert(
-         currentStage > 0 && currentStage <= totalStages,
-         'currentStage must be between 1 and totalStages',
+         currentStage <= totalStages,
+         'currentStage must be less than and equal to totalStages',
        ),
        assert(totalStages > 0, 'totalStages must be greater than 0');
 
