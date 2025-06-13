@@ -5,3 +5,6 @@
 
 ## 1.0.1
 - Readme.md update for better understanding of concepts.
+
+## 1.0.2
+- README.md update for image visuals along with flutter version issue.
